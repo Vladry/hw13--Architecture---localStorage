@@ -1,0 +1,123 @@
+@font-face {
+    font-family: "Lato-Regular";
+    src: url("../fonts/Lato/Lato-Regular.woff2") format('woff2');;
+    font-weight: normal;
+    font-style: normal;
+}
+:root {
+    --hover_color_darker: #f24;
+}
+
+body{
+    background: #313131;
+}
+.wrapper, footer{
+    font-family: "Lato-Regular", serif; /*если не откроется OpenSans, браузер возьмет шрифт sans="без", serif="засечек" */
+}
+.first-menu {
+    color: lightgrey;
+    background: #313131;
+}
+.nav-list a {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+}
+.nav-list a:hover {
+    color: var(--hover_color_darker);
+}
+.search-block:hover {
+    fill: var(--hover_color_darker);
+}
+h2{
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 30px;
+    color: #18B4CF;
+    text-transform: uppercase;
+    text-align: center;
+}
+h4, h4>a {
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 20px;
+    color: dimgray;
+}
+.header-section2 h2 {
+    text-transform: uppercase;
+    font-size: 20px;
+    line-height: 30px;
+}
+.but-header{
+    color: white;
+    font-size: 13px;
+    font-weight: 900;
+    line-height: 20px;
+    background-color: darkred;
+}
+.popular-posts{
+    background-color: #234;
+}
+
+figcaption {
+    background-color: #888;
+    font-size: 15px;
+    font-weight: 400;
+}
+.popular-clients-box {
+    background-size: 90%;
+    height: 568px;
+    background-attachment: fixed;
+    filter: brightness(0.85);
+}
+
+.sub-section-titles {
+    font-size: 28px;
+    line-height: 40px;
+    color: #FFFFFF;
+}
+.top-rated-section {
+    background-color: #234;
+}
+.hot-news {
+    background-color: #234;
+}
+.hot-news-grid-container h3 {
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 20px;
+}
+.hot-news-grid-container p {
+    font-size: 12px;
+    line-height: 21px;
+    font-weight: 400;
+    color: #5b6469;
+}
+
+.card-description {
+    line-height: 21px;
+    color: #fb64A9;
+    font-weight: 900;
+}
+
+.card-description p {
+    font-size: 16px;
+    color: rgb(140, 100, 80);
+}
+
+.aux-menu-tag {
+    color: goldenrod;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.second-menu {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    color: darksalmon;
+}
+
+.but-go-to-top {  /*кнопка показывается только скриптом при определенном значении скролла*/
+    background-color: darkolivegreen;
+    color: red;
+}

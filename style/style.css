@@ -1,0 +1,487 @@
+:root{
+    --p_width_: 1170px;
+    --hover_color_darker: #14B9D5;
+}
+
+body{
+    background: #E5E5E5;
+}
+@font-face {  /*Теория:  https://idg.net.ua/blog/uchebnik-css/ispolzovanie-css/shrifty-podklyuchenie-web-shriftov*/
+    font-family: 'OpenSans'; /*OpenSans -так мы будем назначать в CSS подключенный ниже шрифт*/
+    /*src: url("../fonts/OpenSans_woff2/OpenSans-normal.woff2");*/
+    /*src: url("../fonts/OpenSans_woff2/OpenSans-Light.woff2");*/
+    src: url("../fonts/OpenSans_woff2/OpenSans-Regular.woff2");
+}
+.wrapper, footer{
+    max-width: var(--p_width_);
+    font-family: "OpenSans", sans-serif; /*если не откроется OpenSans, браузер возьмет шрифт sans="без", serif="засечек" */
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+.first-menu {
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    background: #313131;
+}
+.header__brand{
+    display: inline-block;
+}
+.header__brand img {
+    display:inline-block;
+    margin: 22px 27px 21px 27px;
+    vertical-align: middle;
+    cursor:pointer;
+}
+.header__brand span {
+    font-size: 22px;
+    line-height: 30px;
+    display: inline-block;
+    padding: 0 5px;
+    cursor: pointer;
+}
+
+/*section  NAVIGATION BAR*/
+.nav-list {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 25px;
+    align-items: center;
+}
+
+.nav-list a {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: inherit;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 20px;
+    transition: color 0.3s;
+}
+.nav-list a:hover {
+    color: var(--hover_color_darker);
+    cursor:pointer;
+    transition: color 0.5s;
+}
+.search-block{
+    background-color: #000;
+    display: inline-block;
+    padding: 23px 26px 22px;
+    text-align: center;
+    vertical-align: middle;
+    fill: white;
+    transition: fill 0.3s;
+}
+
+.search-block:hover {
+    transition: fill 0.5s;
+    cursor:pointer;
+    fill: var(--hover_color_darker);
+}
+
+/*section HEADER*/
+.header_title {
+    padding-top: 5rem;
+    padding-bottom: 15rem;
+}
+.header-section2 {
+    position: relative;
+    text-align: center;
+}
+/*далее применяем технологию:   https://css-tricks.com/snippets/css/transparent-background-images/
+и  https://coder-coder.com/background-image-opacity/*/
+.header-section2:after { /*чтобы не влиять своим brightness() на дочерние элементы блока, его
+фоновая картинка будет оформлена в виде псевдо-элемента :after   */
+    content: "";
+    max-width: var(--p_width_);
+    position: absolute;
+    top: 0; left: 0;
+    background-color: #c7e1ff; /*на случай отказа в загрузке изображения в след строке*/
+    background-image: url("../images/header-bg.jpeg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position-y: 82%;
+    background-attachment: fixed;
+    z-index: -1;
+
+    filter: brightness(0.7);
+    height: 469px;
+    width: calc( var(--p_width_) /1 );
+
+}
+h2{
+    font-weight: 700;
+    font-size: 27px;
+    line-height: 37px;
+    color: #18B4CF;
+    text-transform: uppercase;
+    text-align: center;
+    /*margin: 49px auto 52px;*/
+    padding-top: 49px;
+    padding-bottom:  52px;
+    margin: 0 auto;
+    z-index: 2;
+}
+h4 a, h4 a, h4 a:visited, h4 a:active {
+    text-decoration: none;
+}
+
+h4, h4>a {
+    font-weight: 300;
+    font-size: 27px;
+    line-height: 27px;
+    color: dimgray;
+    text-transform: lowercase;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom:  15px;
+    margin: 0 auto;
+
+}
+.header-section2 h2 {
+    text-transform: uppercase;
+    font-size: 27px;
+    line-height: 37px;
+    font-weight: 700;
+    color: #FFFFFF;
+    text-align: center;
+    padding-top: 8%;
+}
+.but-header{
+    color: #FFFFFF;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 25px;
+    border-radius: 5px;
+    padding: 16px 19px 17px;
+    margin-top: 44px;
+    margin-bottom: 5rem;
+    background-color: #89CA62;
+    margin-right: 20px;
+}
+.but-header:hover{
+    cursor:pointer;
+}
+
+/*section POPULAR POSTS*/
+.popular-posts{
+    margin: 0 auto;
+    background-color: #F2F2F2;
+    display: none;
+}
+
+.but-gen {
+    display: block;
+    margin: 0 auto;
+}
+
+figcaption {
+    line-height: 61px; /*в figcaption паддинги не расширяют поле вертикально, поэтому
+                        необходимо использовать line-height для расширения высоты строки для
+                        задания в этом поле белого фона (см.стр.ниже)  */
+    background-color: #FFFFFF;
+    font-size: 18px;
+    font-weight: 700;
+}
+.popular-posts-flex-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-content: space-between;
+    align-items: flex-start;
+    gap: 30px;
+    flex-wrap: wrap;
+    width: 1170px;
+    margin: 0 auto;
+    /*height: 1600px;*/
+    height: 900px;
+}
+.popular-posts-items {
+    text-align: center;
+}
+.pp-item1 {
+    order: 1;
+}
+.pp-item2 {
+    order: 3;
+}
+.pp-item3 {
+    order: 5;
+}
+.pp-item4 {
+    order: 2;
+}
+.pp-item5 {
+    order: 4;
+}
+.pp-item6 {
+    order: 6;
+}
+.popular-posts-items:hover {
+    filter: hue-rotate(270deg);
+    transform: translate(5px, 5px);
+    transition: filter 1s, transform 1s;
+    cursor:pointer;
+}
+.popular-posts-items:nth-child(2n+1):hover {
+    transform: translate(5px, -5px);
+    cursor:pointer;
+}
+/*section расположенный выше нужно было реализовать по-другому, как здесь:
+Эффект красивого расположения блоков разной высоты / ширины называется masonry-style. Может поможет в поисках. JS и библиотеки не использовать если что (только чистый css).
+•	https://w3bits.com/flexbox-masonry/
+•	https://w3bits.com/labs/flexbox-masonry/ (ссылка с сайта выше тоже)
+*/
+
+
+/*section  POPULAR-CLIENTS*/
+.popular-clients-box {
+    background-color: #c7e1ff; /*на случай отказа в загрузке изображения в след строке*/
+    background-image: url("../images/parallax-bg.jpeg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    height: 588px;
+    background-attachment: fixed;
+    background-position-y: 21%;
+    filter: brightness(0.75);  /*после этого, включился режим stacking content (контент наложения)
+    для данного элемента, это значит, что для последующих элементов нужно будет указать и position и z-index */
+    z-index: -1;
+}
+
+.sub-section-titles {
+    all: unset;  /*сначала сбросили всё, что ранее присваивалось для заголовков h и h2 */
+    display: block;  /* вернули блочность после сброса выше */
+    position: relative;
+    font-size: 32px;
+    line-height: 44px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    z-index: 1;
+}
+.client-title {
+    top: 190px;
+}
+
+.popular-clients-section {
+    position: relative;
+}
+.client-logo-list {
+    list-style-type: none;
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 58px;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(-380%);
+}
+.client-logo-item:hover {
+    filter: brightness(0.4);
+    transform: translate(10px, 10px);
+    transition: filter 2s, transform 1s;
+    cursor:pointer;
+}
+.client-logo-item:nth-child(2n+1):hover {  /*для всех нечетных*/
+    transform: translate(10px, -10px);
+    cursor:pointer;
+}
+
+/*section  TOP-RATED*/
+section {
+    position: static;
+}
+.top-rated-section {
+    background-color: #FFFFFF;
+}
+.top-rated-section h2 {
+    display: block;
+}
+.top-rated-container {
+    display: flex;
+    flex-flow: nowrap row;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.top-rated-items:hover {
+    filter: hue-rotate(270deg);
+    transform: translate(10px, 10px);
+    transition: filter 2s, transform 2s;
+    cursor:pointer;
+}
+.top-rated-items:nth-child(2n+1):hover {  /*для всех нечетных*/
+    transform: translate(10px, -10px);
+    cursor:pointer;
+}
+.top-rated-items {
+    max-width: calc( var(--p_width_) / 7);
+}
+
+
+/*--------Hot-News Section--------------*/
+.hot-news {
+    background-color: #FFFFFF;
+}
+.hot-news-grid-container {
+    display: grid;
+    margin: 0 auto;
+    max-width: var(--p_width_);
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+    grid-column-gap: 60px;
+    grid-row-gap: 42px;
+}
+.turn-flex {
+    display: flex;
+    align-items: center;
+}
+
+/*  hot-news:  Форматирование параграфов и заголовков */
+.hot-news-grid-container h3 {
+    padding-bottom: 14px;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 25px;
+}
+.hot-news-grid-container p {
+    font-size: 14px;
+    line-height: 21px;
+    font-weight: 600;
+    font-style: normal;
+    color: #5b6469;
+    padding-bottom: 24px;
+}
+
+.hot-news-grid-container{
+    text-align: right;
+    padding: 14px 24px 14px 24px;
+}
+
+
+/*Теперь анимируем картинки-ссылки данного раздела*/
+/*.hot-news-grid-container div:nth-child(2n-1)>a>img:hover {*/
+.rotate-direction-selector:nth-of-type(2n-1) img:hover {
+    transform: rotate(-1080deg) scale(0.1);
+    transform-origin: center;
+    transition: 1.5s linear;
+    cursor:pointer;
+}
+.rotate-direction-selector:nth-of-type(2n) img:hover {
+    transform: rotate(1080deg) scale(0.1);
+    transform-origin: center;
+    transition: 1.5s linear;
+    cursor:pointer;
+}
+/*подробно про размещение авто-сетки здесь:*/
+/*  https://developer.mozilla.org/ru/docs/Web/CSS/CSS_Grid_Layout/Line-based_Placement_with_CSS_Grid  */
+.hot-news-item-1 {
+    grid-column: 1 / 4;
+    grid-row: 1;
+}
+.hot-news-item-2 {
+    grid-column: 4;
+    grid-row: 1;
+}
+.hot-news-item-3 {
+    grid-column: 1 / 3;
+    grid-row: 2;
+}
+.hot-news-item-4 {
+    grid-column: 3 / 5;
+    grid-row: 2;
+}
+.hot-news-item-5 {
+    grid-column: 1 / 3;
+    grid-row: 3;
+}
+.hot-news-item-6 {
+    grid-column: 3 / 5;
+    grid-row: 3;
+}
+.hot-news-item-7 {
+    grid-column: 1;
+    grid-row: 4;
+}
+.hot-news-item-8 {
+    grid-column: 2 / 5;
+    grid-row: 4;
+}
+
+.card-description {
+    line-height: 21px;
+    color: #5b6469;
+    font-weight: 600;
+    padding: 14px 24px;
+    margin: auto;
+}
+
+.card-description p {
+    font-size: 14px;
+    color: #5b6469;
+    padding-bottom: 24px;
+}
+
+/*Footer Section CSS styling*/
+footer {
+    display: flex;
+    font-size: 13px;
+    font-weight: 400;
+    color: white;
+    text-align: left;
+    background-color: black;
+    /*height: 80px;*/
+    /*vertical-align: middle;*/
+    justify-content: space-around;
+    padding: 30px 0;
+    margin-bottom: 10rem;
+}
+
+.foot-logo2:hover {
+    transform: rotate(360deg);
+    transition: transform 2s;
+}
+footer a>img {
+    transition: transform 0.5s;
+}
+footer img:hover {cursor:pointer}
+
+.aux-menu-tag {
+    color: cadetblue;
+    font-size: 18px;
+    font-weight: 900;
+    line-height: 20px;
+    cursor: pointer;
+}
+
+.second-menu {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s;
+    justify-content: space-around;
+    list-style-type: none;
+    flex-direction: row;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: darksalmon;
+}
+
+.but-go-to-top {  /*кнопка показывается только скриптом при определенном значении скролла*/
+    position: fixed;
+    right: 20px;
+    bottom: -50px;
+    /*display: none;  !*закомментил, чтобы срабатывало  transition: opacity 0.8s;    *!*/
+    background-color: darkred;
+    padding: 10px;
+    opacity: 0;
+    transition: opacity 0.8s;
+}
+.active {
+    display: block;
+    opacity: 1;
+    transition: opacity 0.8s;
+}
+
+.theme-but--color {color: red}
